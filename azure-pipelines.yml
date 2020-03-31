@@ -17,3 +17,11 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+  - task: AzureFileCopy@4
+    inputs:
+      SourcePath: 'website'
+      azureSubscription: 'Azure subscription 1(fdcde0b5-90a0-4d0e-b6f0-2b273cffdb5c)'
+      Destination: 'AzureBlob'
+      storage: 'dexllc'
+      ContainerName: '$web'
