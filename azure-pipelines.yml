@@ -1,0 +1,19 @@
+# HTML
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: AzureFileCopy@4
+    inputs:
+      SourcePath: '*'
+      azureSubscription: 'Azure subscription 1(fdcde0b5-90a0-4d0e-b6f0-2b273cffdb5c)'
+      Destination: 'AzureBlob'
+      storage: 'dexllc'
+      ContainerName: '$web'
