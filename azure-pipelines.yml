@@ -13,4 +13,4 @@ steps:
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
-    includeRootFolder: false
+    includeRootFolder: true
