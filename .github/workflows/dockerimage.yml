@@ -24,7 +24,10 @@ jobs:
     - name: Install doctl
       uses: digitalocean/action-doctl@v2
       with:
-        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        token: ${{ secrets.DIGITAL_OCEAN_ACCESS_TOKEN }}
+    
+    - name: Log in to DigitalOcean Container Registry with short-lived credentials
+      run: doctl registry login --expiry-seconds 600
 
     - name: Push image to DigitalOcean Container Registry
       run: docker push registry.digitalocean.com/dexllc/website:latest
