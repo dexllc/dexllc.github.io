@@ -13,6 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    - name: Checkout
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    
+    - name: Build Docker Image
+      run: docker build . --tag registry.digitalocean.com/dexllc/website:latest
+    
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+    - name: Push image to DigitalOcean Container Registry
+      run: docker push registry.digitalocean.com/dexllc/website:latest
+      
