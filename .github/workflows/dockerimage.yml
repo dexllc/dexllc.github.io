@@ -33,5 +33,5 @@ jobs:
       run: docker push registry.digitalocean.com/dexllc/website
 
     - name: Redeploy app
-      run: doctl apps create-deployment a61a8b18-ace8-4c08-b822-9d139c750da7 --force-rebuild true
+      run: doctl apps create-deployment --force-rebuild a61a8b18-ace8-4c08-b822-9d139c750da7
       
