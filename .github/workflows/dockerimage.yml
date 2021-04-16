@@ -31,4 +31,7 @@ jobs:
 
     - name: Push image to DigitalOcean Container Registry
       run: docker push registry.digitalocean.com/dexllc/website:latest
+
+    - name: Redeploy app
+      run: doctl apps create-deployment 769c4a49-f07e-4bb4-a31c-c974796991c5 --force-rebuild true
       
